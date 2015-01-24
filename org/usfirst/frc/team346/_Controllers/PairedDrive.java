@@ -6,9 +6,6 @@
 
 package org.usfirst.frc.team346._Controllers;
 
-import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.Jaguar;
 /**
  *
  * @author officemax1100
