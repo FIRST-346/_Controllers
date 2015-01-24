@@ -12,6 +12,8 @@ public class _CANJaguar extends CANJaguar implements CANPID,_SpeedController
 	public void setPosition(double Position)
 	{
 		disableControl();
+		disableControl();
+		enableControl(Position);
 		enableControl(Position);
 	}
 	
