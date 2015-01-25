@@ -25,7 +25,11 @@ public class MixDummy implements MixOutput,_SpeedController
 		System.err.println("MixDummy: setMixPercent(" + v + ")");
 		output = v;
 	}
-
+	public void setMixPercentDirect(double v) 
+	{
+		System.err.println("MixDummy: setMixPercentDirect(" + v + ")");
+		output = v;
+	}
 	@Override
 	public double getMixPercent() 
 	{

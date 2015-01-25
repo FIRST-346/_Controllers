@@ -7,7 +7,9 @@ public interface MixOutput
 	//	gets scaled down so that the highest value is 100%
 	//Same goes for under -100%
 	public void setMixPercent(double v);  
+	public void setMixPercentDirect(double v);
 	public double getMixPercent();
+	
 	
 	public void reset();
 	public void apply();

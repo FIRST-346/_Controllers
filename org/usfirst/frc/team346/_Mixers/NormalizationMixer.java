@@ -50,7 +50,7 @@ public class NormalizationMixer
 			{
 				//If the max percent output is greater then 100% then scale all the outputs down
 				if(max > 1)
-					m.setMixPercent(m.getMixPercent()/max);
+					m.setMixPercentDirect(m.getMixPercent()/max);
 				m.apply();
 				m.reset();
 			}

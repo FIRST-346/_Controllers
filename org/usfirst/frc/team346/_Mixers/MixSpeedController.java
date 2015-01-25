@@ -8,6 +8,8 @@ public class MixSpeedController<E extends _SpeedController> implements _SpeedCon
 	double outPercent;
 	double outScale;
 	
+	public boolean sumSets = true;
+	
 	public MixSpeedController(E output)
 	{
 		this.output = output;
@@ -16,6 +18,16 @@ public class MixSpeedController<E extends _SpeedController> implements _SpeedCon
 	public E getOutput()
 	{
 		return output;
+	}
+	
+	public void setSumMode()
+	{
+		sumSets = true;
+	}
+	
+	public void setDirectMode()
+	{
+		sumSets = false;
 	}
 	
 	//----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -36,6 +48,7 @@ public class MixSpeedController<E extends _SpeedController> implements _SpeedCon
 	public void set(double speed) 
 	{
 		//This is where we do our tom foolery
+		System.err.println("MixSpeedController: set(" + speed + ")");
 		setMixPercent(speed);
 	}
 	@Override
@@ -59,7 +72,16 @@ public class MixSpeedController<E extends _SpeedController> implements _SpeedCon
 	//----------------------------------------------------------------------------------------------------------------------------------------------------------------
 	@Override
 	public void setMixPercent(double v) {
+		if(sumSets)
+			outPercent += v;
+		else
+			outPercent = v;
+		System.err.println("MixSpeedController: setMixPercent(" + v + ") => " + outPercent);
+	}
+	@Override
+	public void setMixPercentDirect(double v) {
 		outPercent = v;
+		System.err.println("MixSpeedController: setMixPercent(" + v + ") => " + outPercent);
 	}
 	@Override
 	public double getMixPercent() {
