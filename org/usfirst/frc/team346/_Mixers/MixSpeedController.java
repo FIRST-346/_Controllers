@@ -1,13 +1,23 @@
 package org.usfirst.frc.team346._Mixers;
 
 import org.usfirst.frc.team346._Controllers._SpeedController;
-
+/*
+ * Author: Bryant overgard
+ * MixSpeedController<E> a speed controller that hijacks other speed controller's set methods
+ * 
+ * This class allows for any class that implements the _SpeedController interface
+ * and allows the end user to mix multiple output 'streams' into a singular channel
+ */
 public class MixSpeedController<E extends _SpeedController> implements _SpeedController, MixOutput
 {
 	public E output;
 	double outPercent;
 	double outScale;
 	
+	
+	//This is used for when multiple controllers are writing to the same device.
+	//For instance one controller is trying to get the robot to move forward
+	//While another is trying to get it to turn
 	public boolean sumSets = true;
 	
 	public MixSpeedController(E output)
@@ -38,6 +48,8 @@ public class MixSpeedController<E extends _SpeedController> implements _SpeedCon
 	{
 		return output.get();
 	}
+	
+	//TODO: Make this actually follow through with the application of the group
 	@Override
 	public void set(double speed, byte syncGroup) 
 	{

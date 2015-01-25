@@ -1,7 +1,31 @@
 package org.usfirst.frc.team346._Mixers;
 
 import java.util.ArrayList;
-
+/*
+ * Author: Bryant Overgard
+ * NormalizationMixer a mixer norrmalizer
+ * 
+ * This class takes n MixOutputs and normalizes their outputs so that the
+ * Highest output (Over 100%) gets scaled down to 100% and the remaining controllers get scaled down an equal percentage
+ * 
+ * This is accomplished by first finding the highest output over 100% and setting that as the denominator of the
+ * percentage.
+ * 
+ * Consider the following:
+ * Assume 2 MixOutputs
+ * MixOutput 1 is set to 1.1 (110%)
+ * MixOutput 2 is set to .5 (50%)
+ * 
+ * Because you cannot output more power then you have you need to scale your outputs to be proportional
+ * to the highest value (as long as its over 100%)
+ * 
+ * MixOutput 1 is scaled to 100% by taking 1.1 and dividing it by 1.1
+ * MixOutput 2 is scaled to 45.45(bar)% by taking .5 and dividing it by 1.1
+ * 
+ * MixOutput1 => 1.1/1.1
+ * MixOutput2 => 0.5/1.1
+ * 
+ */
 public class NormalizationMixer 
 {
 	public ArrayList<MixOutput> mixSet;
