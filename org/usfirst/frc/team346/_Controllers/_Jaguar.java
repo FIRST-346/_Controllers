@@ -15,4 +15,10 @@ public class _Jaguar extends Jaguar implements _SpeedController
 		// TODO Auto-generated method stub
 		return get();
 	}
+	
+	public double scale = 1;
+	public void setScale(double scale)
+	{
+		this.scale = scale;
+	}
 }

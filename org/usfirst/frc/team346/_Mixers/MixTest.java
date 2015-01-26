@@ -23,7 +23,7 @@ public class MixTest
 		init();
 		
 		
-		//Test 1: Set all valsues within range and apply, expected output should be the input
+		//Test 1: Set all values within range and apply, expected output should be the input
 //			d1.set(0.5);
 //			d2.set(0.5);
 //			mix.apply();

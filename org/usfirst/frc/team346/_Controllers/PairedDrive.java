@@ -27,6 +27,10 @@ public class PairedDrive implements _SpeedController
    
    private double lastValue = 0;
    
+   public boolean slaveVoltage = true;
+   public boolean debug = false;
+   public String debugName = "unnamedPairedDrive";
+   
    	public PairedDrive(_SpeedController Master, _SpeedController Slave)
    	{
    		MasterController = Master;
@@ -51,16 +55,24 @@ public class PairedDrive implements _SpeedController
    	public void set(double value)
    	{
    		MasterController.set(value*masterScale);
-   		double lastValue = MasterController.getPercentOutput();
-   		SlaveController.set(lastValue*slaveScale);
+   		lastValue = value;
+   		double slaveValue = value;
+   		if(slaveVoltage)
+   			slaveValue = MasterController.getPercentOutput();
+   		SlaveController.set(slaveValue*slaveScale);
+   		if(debug)
+   			System.out.println(debugName + ": Master: " + value*masterScale + " Slave: " + slaveValue * slaveScale);
    	}
    	
    	@Override
 	public void set(double value, byte syncGroup) 
 	{
    		MasterController.set(value*masterScale, syncGroup);
-   		lastValue = MasterController.getPercentOutput();
-   		SlaveController.set(lastValue*slaveScale, syncGroup);
+   		lastValue = value;
+   		double slaveValue = value;
+   		if(slaveVoltage)
+   			slaveValue = MasterController.getPercentOutput();
+   		SlaveController.set(slaveValue*slaveScale, syncGroup);
 	}
    	
 	@Override

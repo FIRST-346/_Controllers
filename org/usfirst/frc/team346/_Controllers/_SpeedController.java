@@ -5,4 +5,5 @@ import edu.wpi.first.wpilibj.SpeedController;
 public interface _SpeedController extends SpeedController
 {
 	public double getPercentOutput();
+	public void setScale(double scale);
 }

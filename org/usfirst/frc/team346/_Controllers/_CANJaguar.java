@@ -5,6 +5,12 @@ import edu.wpi.first.wpilibj.CANJaguar;
 public class _CANJaguar extends CANJaguar implements CANPID,_SpeedController
 {
 
+	public double scale = 1;
+	public void setScale(double scale)
+	{
+		this.scale = scale;
+	}
+	
 	public _CANJaguar(int deviceNumber) {
 		super(deviceNumber);
 		// TODO Auto-generated constructor stub

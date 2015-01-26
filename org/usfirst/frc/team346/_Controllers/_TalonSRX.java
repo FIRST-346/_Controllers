@@ -13,6 +13,12 @@ public class _TalonSRX extends TalonSRX implements _SpeedController
 	public double getPercentOutput() {
 		return get();
 	}
+	
+	public double scale = 1;
+	public void setScale(double scale)
+	{
+		this.scale = scale;
+	}
 
 	
 }

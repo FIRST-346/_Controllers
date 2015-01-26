@@ -13,5 +13,11 @@ public class _Victor extends Victor implements _SpeedController
 	public double getPercentOutput() {
 		return get();
 	}
+	
+	public double scale = 1;
+	public void setScale(double scale)
+	{
+		this.scale = scale;
+	}
 
 }

@@ -17,4 +17,10 @@ public class _CANTalon extends CANTalon implements CANPID, _SpeedController
 		return ov/bv;
 	}
 	
+	public double scale = 1;
+	public void setScale(double scale)
+	{
+		this.scale = scale;
+	}
+	
 }
